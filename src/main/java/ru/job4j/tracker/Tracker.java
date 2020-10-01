@@ -32,9 +32,9 @@ public class Tracker {
     public Item[] findByName(String name) {
         Item[] namesFound = new Item[size];
         int index = 0;
-        for (Item item : items) {
-            if (item.getName().equals(name)) {
-                namesFound[index] = item;
+        for (int i = 0; i < size; i++) {
+            if (items[i].getName().equals(name)) {
+                namesFound[index] = items[i];
                 index++;
             }
         }
@@ -44,9 +44,9 @@ public class Tracker {
     public Item[] findAll() {
         Item[] itemsWithoutNulls = new Item[size];
         int index = 0;
-        for (Item item : items) {
-            if (item != null) {
-                itemsWithoutNulls[index] = item;
+        for (int i = 0; i < size; i++) {
+            if (items[i] != null) {
+                itemsWithoutNulls[index] = items[i];
                 index++;
             }
         }
