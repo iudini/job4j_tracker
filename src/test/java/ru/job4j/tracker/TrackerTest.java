@@ -73,4 +73,32 @@ public class TrackerTest {
         }
         assertThat(rsl, is(expected));
     }
+
+    @Test
+    public void TrackerSingleLazy() {
+        Tracker one = TrackerSingleLazy.getInstance();
+        Tracker two = TrackerSingleLazy.getInstance();
+        assertThat(one, is(two));
+    }
+
+    @Test
+    public void TrackerSingleLazyInnerClass() {
+        Tracker one = TrackerSingleLazyInnerClass.getInstance();
+        Tracker two = TrackerSingleLazyInnerClass.getInstance();
+        assertThat(one, is(two));
+    }
+
+    @Test
+    public void TrackerSingleEager() {
+        Tracker one = TrackerSingleEager.getInstance();
+        Tracker two = TrackerSingleEager.getInstance();
+        assertThat(one, is(two));
+    }
+
+    @Test
+    public void TrackerSingleEnum() {
+        Tracker one = TrackerSingleEnum.INSTANCE.getTracker();
+        Tracker two = TrackerSingleEnum.INSTANCE.getTracker();
+        assertThat(one, is(two));
+    }
 }
