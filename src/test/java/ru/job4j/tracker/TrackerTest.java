@@ -1,6 +1,10 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
@@ -46,7 +50,7 @@ public class TrackerTest {
         Item bug = new Item();
         bug.setName("Bug");
         tracker.add(bug);
-        assertThat(tracker.findByName("Bug")[0].getName(), is("Bug"));
+        assertThat(tracker.findByName("Bug").get(0).getName(), is("Bug"));
     }
 
     @Test
@@ -65,11 +69,14 @@ public class TrackerTest {
         tracker.add(dog);
         tracker.add(bat);
         tracker.delete(3);
-        Item[] resultItem = tracker.findAll();
-        String[] rsl = new String[resultItem.length];
-        String[] expected = new String[]{"Bug", "cat", "bat"};
-        for (int i = 0; i < resultItem.length; i++) {
-            rsl[i] = resultItem[i].getName();
+        List<Item> resultItem = tracker.findAll();
+        List<String> rsl = new ArrayList<>();
+        List<String> expected = new ArrayList<>();
+        expected.add("Bug");
+        expected.add("cat");
+        expected.add("bat");
+        for (Item item : resultItem) {
+            rsl.add(item.getName());
         }
         assertThat(rsl, is(expected));
     }
