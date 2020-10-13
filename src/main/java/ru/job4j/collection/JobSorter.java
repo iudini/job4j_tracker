@@ -14,10 +14,10 @@ public class JobSorter {
                 new Job("X task", 0)
         );
         Comparator<Job> comb = new JobDescByName()
-                .thenComparing(new JobDescByPriority())
+                .thenComparing(new JobDescByPrior())
                 .thenComparing(new JobDescByNameLn());
 
-        Collections.sort(jobs, comb);
+        jobs.sort(comb);
         System.out.println(jobs);
     }
 }

@@ -21,7 +21,7 @@ public class JobTest {
                 new Job("Alfa", 2),
                 new Job("X-ray", 0)
         );
-        Collections.sort(jobs, new JobDescByName());
+        jobs.sort(new JobDescByName());
         List<Job> expect = Arrays.asList(
                 new Job("X-ray", 0),
                 new Job("Gamma", 4),
@@ -39,7 +39,7 @@ public class JobTest {
                 new Job("Alfa", 2),
                 new Job("X-ray", 0)
         );
-        Collections.sort(jobs, new JobIncByName());
+        jobs.sort(new JobIncByName());
         List<Job> expect = Arrays.asList(
                 new Job("Alfa", 2),
                 new Job("Beta", 1),
@@ -57,7 +57,7 @@ public class JobTest {
                 new Job("Alfa", 2),
                 new Job("X-ray", 0)
         );
-        Collections.sort(jobs, new JobDescByPriority());
+        jobs.sort(new JobDescByPrior());
         List<Job> expect = Arrays.asList(
                 new Job("Alfa", 4),
                 new Job("Alfa", 2),
@@ -75,7 +75,7 @@ public class JobTest {
                 new Job("Alfa", 2),
                 new Job("X-ray", 0)
         );
-        Collections.sort(jobs, new JobIncByPriority());
+        jobs.sort(new JobIncByPrior());
         List<Job> expect = Arrays.asList(
                 new Job("X-ray", 0),
                 new Job("Alfa", 1),
@@ -87,8 +87,8 @@ public class JobTest {
 
     @Test
     public void whenCompatorByNameAndPrority() {
-        Comparator<Job> cmpNamePriority = new JobDescByName().thenComparing(new JobDescByPriority());
-        int rsl = cmpNamePriority.compare(
+        Comparator<Job> cmpNamePrior = new JobDescByName().thenComparing(new JobDescByPrior());
+        int rsl = cmpNamePrior.compare(
                 new Job("Impl task", 0),
                 new Job("Fix bug", 1)
         );
@@ -96,15 +96,15 @@ public class JobTest {
     }
 
     @Test
-    public void whenCompatorByNameAndProrityInc() {
+    public void whenCompatorByNameAndPriorityInc() {
         List<Job> jobs = Arrays.asList(
                 new Job("Alfa", 1),
                 new Job("Alfa", 4),
                 new Job("Alfa", 2),
                 new Job("X-ray", 0)
         );
-        Comparator<Job> cmpNamePriorityInc = new JobIncByName().thenComparing(new JobIncByPriority());
-        Collections.sort(jobs, cmpNamePriorityInc);
+        Comparator<Job> cmpNamePriorInc = new JobIncByName().thenComparing(new JobIncByPrior());
+        jobs.sort(cmpNamePriorInc);
         List<Job> expect = Arrays.asList(
                 new Job("Alfa", 1),
                 new Job("Alfa", 2),
