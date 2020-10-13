@@ -11,19 +11,11 @@ public class User implements Comparable<User> {
         this.age = age;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
     @Override
     public int compareTo(User o) {
-        int rsl = new SortByNameUser().compare(this, o);
+        int rsl = name.compareTo(o.name);
         if (rsl == 0) {
-            rsl = new SortByAgeUser().compare(this, o);
+            rsl = Integer.compare(age, o.age);
         }
         return rsl;
     }
