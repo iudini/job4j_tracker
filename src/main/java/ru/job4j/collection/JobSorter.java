@@ -7,6 +7,7 @@ import java.util.List;
 
 public class JobSorter {
     public static void main(String[] args) {
+        List<String> list = List.of("one", "two", "three");
         List<Job> jobs = Arrays.asList(
                 new Job("Fix bug", 1),
                 new Job("Fix bug", 4),
