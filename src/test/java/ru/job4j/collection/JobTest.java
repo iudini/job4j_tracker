@@ -21,7 +21,7 @@ public class JobTest {
                 new Job("X-ray", 0)
         );
         jobs.sort(new JobDescByName());
-        List<Job> expect = Arrays.asList(
+        List<Job> expect = List.of(
                 new Job("X-ray", 0),
                 new Job("Gamma", 4),
                 new Job("Beta", 1),
@@ -39,7 +39,7 @@ public class JobTest {
                 new Job("X-ray", 0)
         );
         jobs.sort(new JobIncByName());
-        List<Job> expect = Arrays.asList(
+        List<Job> expect = List.of(
                 new Job("Alfa", 2),
                 new Job("Beta", 1),
                 new Job("Gamma", 4),
@@ -57,7 +57,7 @@ public class JobTest {
                 new Job("X-ray", 0)
         );
         jobs.sort(new JobDescByPrior());
-        List<Job> expect = Arrays.asList(
+        List<Job> expect = List.of(
                 new Job("Alfa", 4),
                 new Job("Alfa", 2),
                 new Job("Alfa", 1),
@@ -75,7 +75,7 @@ public class JobTest {
                 new Job("X-ray", 0)
         );
         jobs.sort(new JobIncByPrior());
-        List<Job> expect = Arrays.asList(
+        List<Job> expect = List.of(
                 new Job("X-ray", 0),
                 new Job("Alfa", 1),
                 new Job("Alfa", 2),
@@ -104,7 +104,7 @@ public class JobTest {
         );
         Comparator<Job> cmpNamePriorInc = new JobIncByName().thenComparing(new JobIncByPrior());
         jobs.sort(cmpNamePriorInc);
-        List<Job> expect = Arrays.asList(
+        List<Job> expect = List.of(
                 new Job("Alfa", 1),
                 new Job("Alfa", 2),
                 new Job("Alfa", 4),
