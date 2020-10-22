@@ -67,6 +67,9 @@ public class SchoolTest {
     @Test
     public void whenCollectToMap() {
         School sc = new School();
+        students.add(new Student(30, "Surname3"));
+        students.add(new Student(40, "Surname4"));
+        students.add(new Student(90, "Surname9"));
         Map<String, Student> rsl = sc.collectToMap(students);
         Map<String, Student> expected = new HashMap<>();
         expected.put("Surname1", new Student(10, "Surname1"));
