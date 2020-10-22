@@ -5,7 +5,7 @@ import java.util.Optional;
 public class OptionalGetAndIsPresent {
 
     public static int get(int[] data, int el) {
-        Optional<Integer> optional= indexOf(data, el);
+        Optional<Integer> optional = indexOf(data, el);
         if (optional.isEmpty()) {
             return -1;
         }
