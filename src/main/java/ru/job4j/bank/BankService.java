@@ -13,7 +13,9 @@ public class BankService {
         var user = findByPassport(passport);
         if (user.isPresent()) {
             var accounts = users.get(user.get());
-            accounts.add(account);
+            if (!accounts.contains(account)) {
+                accounts.add(account);
+            }
         }
     }
 
