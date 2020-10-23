@@ -12,8 +12,8 @@ public class BankService {
     public void addAccount(String passport, Account account) {
         var user = findByPassport(passport);
         if (user.isPresent()) {
-            Optional<List<Account>> accounts = Optional.ofNullable(users.get(user.get()));
-            accounts.ifPresent(x -> x.add(account));
+            var accounts = users.get(user.get());
+            accounts.add(account);
         }
     }
 
