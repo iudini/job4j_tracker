@@ -12,7 +12,7 @@ import static org.junit.Assert.assertThat;
 public class TrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item item = new Item();
         item.setName("test1");
         tracker.add(item);
@@ -22,7 +22,7 @@ public class TrackerTest {
 
     @Test
     public void whenReplace() {
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item bug = new Item();
         bug.setName("Bug");
         tracker.add(bug);
@@ -35,7 +35,7 @@ public class TrackerTest {
 
     @Test
     public void whenDelete() {
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item bug = new Item();
         bug.setName("Bug");
         tracker.add(bug);
@@ -46,7 +46,7 @@ public class TrackerTest {
 
     @Test
     public void whenFoundByName() {
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item bug = new Item();
         bug.setName("Bug");
         tracker.add(bug);
@@ -55,7 +55,7 @@ public class TrackerTest {
 
     @Test
     public void whenFoundAll() {
-        Tracker tracker = new Tracker();
+        MemTracker tracker = new MemTracker();
         Item bug = new Item();
         Item cat = new Item();
         Item dog = new Item();
@@ -83,29 +83,29 @@ public class TrackerTest {
 
     @Test
     public void trackerSingleLazy() {
-        Tracker one = TrackerSingleLazy.getInstance();
-        Tracker two = TrackerSingleLazy.getInstance();
+        MemTracker one = TrackerSingleLazy.getInstance();
+        MemTracker two = TrackerSingleLazy.getInstance();
         assertThat(one, is(two));
     }
 
     @Test
     public void trackerSingleLazyInnerClass() {
-        Tracker one = TrackerSingleLazyInnerClass.getInstance();
-        Tracker two = TrackerSingleLazyInnerClass.getInstance();
+        MemTracker one = TrackerSingleLazyInnerClass.getInstance();
+        MemTracker two = TrackerSingleLazyInnerClass.getInstance();
         assertThat(one, is(two));
     }
 
     @Test
     public void trackerSingleEager() {
-        Tracker one = TrackerSingleEager.getInstance();
-        Tracker two = TrackerSingleEager.getInstance();
+        MemTracker one = TrackerSingleEager.getInstance();
+        MemTracker two = TrackerSingleEager.getInstance();
         assertThat(one, is(two));
     }
 
     @Test
     public void trackerSingleEnum() {
-        Tracker one = TrackerSingleEnum.INSTANCE.getTracker();
-        Tracker two = TrackerSingleEnum.INSTANCE.getTracker();
+        MemTracker one = TrackerSingleEnum.INSTANCE.getTracker();
+        MemTracker two = TrackerSingleEnum.INSTANCE.getTracker();
         assertThat(one, is(two));
     }
 }
